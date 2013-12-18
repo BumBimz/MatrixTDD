@@ -10,61 +10,71 @@
       );
     }
 
-    function testDaigonalDownGivenSqualMatrixWhenFirstRoundThenReturnThreeNegativeFiveAndOne(){
-      $expect = array(3,-5,1);
-      $actual = $this->determenant->daigonalDown($this->arrayMatrix,1);
-      $this->assertEquals($expect,$actual);
+    function providerDaigonal(){
+      return array(
+        array(1,array(3,-5,1),array(1,-5,-1)),
+        array(2,array(5,1,1),array(1,1,3)),
+        array(3,array(-1,2,1),array(1,2,5)),
+      );
     }
 
-    function testDaigonalDownGivenSqualMatrixWhenSecondRoundThenReturnFiveOneAndOne(){
-      $expect = array(5,1,1);
-      $actual = $this->determenant->daigonalDown($this->arrayMatrix,2);
-      $this->assertEquals($expect,$actual);
+    function providerMutiple(){
+      return array(
+        array(array(3,-5,1),-15),
+        array(array(5,1,1),5),
+        array(array(-1,2,1),-2),
+        array(array(1,2,5),10),
+      );
     }
 
-    function testDaigonalDownGivenSqualMatrixWhenThirdRoundThenReturnNagativeOneTwoAndOne(){
-      $expect = array(-1,2,1);
-      $actual = $this->determenant->daigonalDown($this->arrayMatrix,3);
-      $this->assertEquals($expect,$actual);
+    function providerPositive(){
+      return array(
+        array(-15,5,-2,-12),
+        array(5,3,10,18),
+        array(1,1,0,2),
+      );
     }
 
-    function testDaigonalUpGivenSqualMatrixWhenFirstRoundThenReturnOneNagativeFiveAndNegativeOne(){
-      $expect = array(1,-5,-1);
-      $actual = $this->determenant->daigonalUp($this->arrayMatrix,1);
-      $this->assertEquals($expect,$actual);
+    function providerMinus(){
+      return array(
+        array(-12,18,-30),
+        array(2,0,2),
+        array(9,-6,15),
+      );
     }
 
-    function testDaigonalUpGivenSqualMatrixWhenSecondRoundThenReturnOneOneAndThree(){
-      $expect = array(1,1,3);
-      $actual = $this->determenant->daigonalUp($this->arrayMatrix,2);
-      $this->assertEquals($expect,$actual);
+    /**
+     * @dataProvider providerDaigonal
+     */
+    function testDaigonalGivenSqualMatrixWhenAnyRoundThenReturnExpected($round,$expectedDown,$expectedUp){
+      $actualDown = $this->determenant->daigonalDown($this->arrayMatrix,$round);
+      $actualUp = $this->determenant->daigonalUp($this->arrayMatrix,$round);
+      $this->assertEquals($expectedDown,$actualDown);
+      $this->assertEquals($expectedUp,$actualUp);
     }
 
-    function testDaigonalUpGivenSqualMatrixWhenThirdRoundThenReturnOneTwoAndFive(){
-      $expect = array(1,2,5);
-      $actual = $this->determenant->daigonalUp($this->arrayMatrix,3);
-      $this->assertEquals($expect,$actual);
+    /**
+     * @dataProvider providerMutiple
+     */
+    function testMultipleDaigonalGivenValueOfDaigonalWhenCalculatorThenResltExpected($valueOfDaigonal,$expected){
+      $actual = $this->determenant->multipleDaigonal($valueOfDaigonal);
+      $this->assertEquals($expected,$actual);
     }
 
-    function testDaigonalDownGivenSqualMatrixWhenFirstRoundThenResultReturnNegativeFifteen(){
-      $expect = -15;
-      $value = $this->determenant->daigonalDown($this->arrayMatrix,1);
-      $actual = $this->determenant->Multiple($value);
-      $this->assertEquals($expect,$actual);
+    /**
+     * @dataProvider providerPositive
+     */
+    function testPositiveValueOfDaigonalWhenCalculatorThenResultExpectd($firstValue,$secondValue,$thirdValue,$expected){
+      $actual = $this->determenant->positive($firstValue,$secondValue,$thirdValue);
+      $this->assertEquals($expected,$actual);
     }
 
-    function testDaigonalDownGivenSqualMatrixWhenSecondRoundThenResultReturnFive(){
-      $expect = 5;
-      $value = $this->determenant->daigonalDown($this->arrayMatrix,2);
-      $actual = $this->determenant->Multiple($value);
-      $this->assertEquals($expect,$actual);
-    }
-
-    function testDaigonalUpGivenSqualMatrixWhenThirdRoundThenResultReturnTen(){
-      $expect = 10;
-      $value = $this->determenant->daigonalUp($this->arrayMatrix,3);
-      $actual = $this->determenant->Multiple($value);
-      $this->assertEquals($expect,$actual);
+    /**
+     * @dataProvider providerMinus
+     */
+    function testCalculateMinusWhenAfterCalculatePositiveDaigonalThenreturnExpected($firstValue,$secondValue,$expected){
+      $actual = $this->determenant->minus($firstValue,$secondValue);
+      $this->assertEquals($expected,$actual);
     }
 
   }

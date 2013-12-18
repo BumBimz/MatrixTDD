@@ -30,9 +30,18 @@
       return $result;
     }
 
-    function Multiple($value){
-      $result = $value[0]*$value[1]*$value[2];
+    function multipleDaigonal($variable){
+      $result = $variable[0]*$variable[1]*$variable[2];
       return $result;
+    }
+
+    function positive($firstValue,$secondValue,$thirdValue){
+      $result = $firstValue+$secondValue+$thirdValue;
+      return $result;
+    }
+
+    function minus($firstValue,$secondValue){
+      return $firstValue-$secondValue;
     }
   }
 ?>
