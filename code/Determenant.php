@@ -43,5 +43,35 @@
     function minus($firstValue,$secondValue){
       return $firstValue-$secondValue;
     }
+
+    function lastStep($multipledaigonal){
+      $positiveDaigonalDown = $this->positive($multipledaigonal[0],$multipledaigonal[1],$multipledaigonal[2]);
+      $positiveDaigonalUp = $this->positive($multipledaigonal[3],$multipledaigonal[4],$multipledaigonal[5]);
+      $result = $this->minus($positiveDaigonalDown,$positiveDaigonalUp);
+      return $result;
+    }
+
+    function secondStep($daigonal){
+      for($round=0;$round<6;$round++)
+        $result[$round]= $this->multipleDaigonal($daigonal[$round]);
+      return $result;
+    }
+
+    function firstStep($arrayMatrix){
+      for($round=1;$round<=3;$round++){
+        $positionDown = $round-1;
+        $positionUp = $round+2;
+        $result[$positionDown]=$this->daigonalDown($arrayMatrix,$round);
+        $result[$positionUp]=$this->daigonalUp($arrayMatrix,$round);
+      }
+      return $result;
+    }
+
+    function calculatorDetermenain($arrayMatrix){
+      $firstStep = $this->firstStep($arrayMatrix);
+      $secondStep = $this->secondStep($firstStep);
+      $result = $this->lastStep($secondStep);
+      return $result;
+    }
   }
 ?>
