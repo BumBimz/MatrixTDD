@@ -1,5 +1,5 @@
 <?php
-  class Determenant{
+  class Determinant{
     function daigonalDown($arrayMatrix,$round){
       switch($round){
       case 1:
@@ -67,7 +67,7 @@
       return $result;
     }
 
-    function calculatorDetermenain($arrayMatrix){
+    function calculatorDeterminant($arrayMatrix){
       $firstStep = $this->firstStep($arrayMatrix);
       $secondStep = $this->secondStep($firstStep);
       $result = $this->lastStep($secondStep);

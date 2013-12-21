@@ -1,8 +1,8 @@
 <?php
-  class DetermenantTest extends PHPUnit_Framework_TestCase{
+  class DeterminantTest extends PHPUnit_Framework_TestCase{
 
     function setUp(){
-      $this->determenant = new Determenant();
+      $this->determinant = new Determinant();
     }
 
     function providerDaigonal(){
@@ -117,8 +117,8 @@
         array(2,-5,1),
         array(1,1,1),
       );
-      $actualDown = $this->determenant->daigonalDown($arrayMatrix,$round);
-      $actualUp = $this->determenant->daigonalUp($arrayMatrix,$round);
+      $actualDown = $this->determinant->daigonalDown($arrayMatrix,$round);
+      $actualUp = $this->determinant->daigonalUp($arrayMatrix,$round);
       $this->assertEquals($expectedDown,$actualDown);
       $this->assertEquals($expectedUp,$actualUp);
     }
@@ -127,7 +127,7 @@
      * @dataProvider providerMutiple
      */
     function testMultipleDaigonalGivenValueOfDaigonalWhenCalculatorThenResltExpected($valueOfDaigonal,$expected){
-      $actual = $this->determenant->multipleDaigonal($valueOfDaigonal);
+      $actual = $this->determinant->multipleDaigonal($valueOfDaigonal);
       $this->assertEquals($expected,$actual);
     }
 
@@ -135,7 +135,7 @@
      * @dataProvider providerPositive
      */
     function testPositiveValueOfDaigonalWhenCalculatorThenResultExpectd($firstValue,$secondValue,$thirdValue,$expected){
-      $actual = $this->determenant->positive($firstValue,$secondValue,$thirdValue);
+      $actual = $this->determinant->positive($firstValue,$secondValue,$thirdValue);
       $this->assertEquals($expected,$actual);
     }
 
@@ -143,7 +143,7 @@
      * @dataProvider providerMinus
      */
     function testCalculateMinusWhenAfterCalculatePositiveDaigonalThenreturnExpected($firstValue,$secondValue,$expected){
-      $actual = $this->determenant->minus($firstValue,$secondValue);
+      $actual = $this->determinant->minus($firstValue,$secondValue);
       $this->assertEquals($expected,$actual);
     }
 
@@ -151,7 +151,7 @@
      * @dataProvider providerLastStep
      */
     function testLastStepWhenAddMultipleDaigonalThenReturnExpected($multipleDaigonal,$expected){
-      $actual = $this->determenant->lastStep($multipleDaigonal);
+      $actual = $this->determinant->lastStep($multipleDaigonal);
       $this->assertEquals($expected,$actual);
     }
 
@@ -159,7 +159,7 @@
      * @dataProvider providerSecondStep
      */
     function testSecondStepWhenAddArrayDaigonalThenReturnMultipleDaigonalExpected($daigonal,$expected){
-      $actual = $this->determenant->secondStep($daigonal);
+      $actual = $this->determinant->secondStep($daigonal);
       $this->assertEquals($expected,$actual);
     }
 
@@ -167,15 +167,15 @@
      * @dataProvider providerFirstStep
      */
     function testFirstStepWhenAddMatrixThenReturnDaigonalExpected($arrayMatrix,$expected){
-      $actual = $this->determenant->firstStep($arrayMatrix);
+      $actual = $this->determinant->firstStep($arrayMatrix);
       $this->assertEquals($expected,$actual);
     }
 
     /**
      * @dataProvider providerCalculator
      */
-    function testCalculateDetermenantWhenAddMatrixThenReturnDeterminantExpected($arrayMatrix,$expected){
-      $actual = $this->determenant->calculatorDetermenain($arrayMatrix);
+    function testCalculateDeterminantWhenAddMatrixThenReturnDeterminantExpected($arrayMatrix,$expected){
+      $actual = $this->determinant->calculatorDeterminant($arrayMatrix);
       $this->assertEquals($expected,$actual);
     }
 
