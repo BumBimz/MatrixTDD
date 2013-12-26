@@ -1,20 +1,27 @@
 <?php
   class MinorMatrices{
-    function minorMatrix($arraymatrix,$n,$m){
-      $x=0;
-      for($i=0;$i<sizeof($arraymatrix);$i++){
-        if($i!=$n){
-          $y=0;
-          for($j=0;$j<sizeof($arraymatrix);$j++){
-            if($j!=$m){
-              $newArray[$x][$y]=$arraymatrix[$i][$j];
-              $y++;
-            }
-          }
-          $x++;
+    function minorMatrix($arrayMatrix,$rowMartrix,$columnMartrix){
+      $this->arrayMatrix = $arrayMatrix;
+      $this->sizeOfMatrix = sizeof($arrayMatrix);
+      $this->positionAxisX = 0;
+      $this->columnMartrix = $columnMartrix;
+      for($row=0;$row<$this->sizeOfMatrix;$row++){
+        if($row!=$rowMartrix){
+          $this->minorMatrixAxisY($row);
+          $this->positionAxisX++;
         }
       }
-      return $newArray;
+      return $this->newArray;
+    }
+
+    function minorMatrixAxisY($row){
+      $positionAxisY=0;
+      for($column=0;$column<$this->sizeOfMatrix;$column++){
+        if($column!=$this->columnMartrix){
+          $this->newArray[$this->positionAxisX][$positionAxisY]=$this->arrayMatrix[$row][$column];
+          $positionAxisY++;
+        }
+      }
     }
   }
 ?>
