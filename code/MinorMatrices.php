@@ -2,16 +2,21 @@
   class MinorMatrices{
     function minorMatrix($arrayMatrix,$rowMartrix,$columnMartrix){
       $this->arrayMatrix = $arrayMatrix;
-      $this->sizeOfMatrix = sizeof($arrayMatrix);
-      $this->positionAxisX = 0;
+      $this->rowMatrix = $rowMartrix;
       $this->columnMartrix = $columnMartrix;
+      $this->minorMatrixAxisX();
+      return $this->newArray;
+    }
+
+    function minorMatrixAxisX(){
+      $this->sizeOfMatrix = sizeof($this->arrayMatrix);
+      $this->positionAxisX = 0;
       for($row=0;$row<$this->sizeOfMatrix;$row++){
-        if($row!=$rowMartrix){
+        if($row!=$this->rowMatrix){
           $this->minorMatrixAxisY($row);
           $this->positionAxisX++;
         }
       }
-      return $this->newArray;
     }
 
     function minorMatrixAxisY($row){
