@@ -58,5 +58,15 @@
       $actual = $this->minorMatrices->deteminantMinorMatrix($this->arrayMatrix,0,1);
       $this->assertEquals($expected,$actual);
     }
+
+    function testMinorMatricesWhenAdd3x3SqureMatrixThenReturnExpectedMatrix(){
+      $expected = array(
+                    array(-6,6,0),
+                    array(1,4,5),
+                    array(7,-2,-25)
+                  );
+      $actual = $this->minorMatrices->findDeterminant($this->arrayMatrix);
+      $this->assertEquals($expected,$actual);
+    }
   }
 ?>
