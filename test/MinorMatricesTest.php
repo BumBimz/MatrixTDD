@@ -68,5 +68,19 @@
       $actual = $this->minorMatrices->findDeterminant($this->arrayMatrix);
       $this->assertEquals($expected,$actual);
     }
+    function testMinorMatricesWhenAddNew3x3SqureMatrixThenReturnExpectedMatrix(){
+      $arrayMatrix = array(
+                      array(1,0,1),
+                      array(1,1,0),
+                      array(0,1,1)
+                    );
+      $expected = array(
+                    array(1,1,1),
+                    array(-1,1,1),
+                    array(-1,-1,1)
+                  );
+      $actual = $this->minorMatrices->findDeterminant($arrayMatrix);
+      $this->assertEquals($expected,$actual);
+    }
   }
 ?>
