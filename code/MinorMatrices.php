@@ -30,7 +30,9 @@
     }
 
     function deteminantMinorMatrix($arrayMatrix){
-      $determinant = $arrayMatrix[0][0]*$arrayMatrix[1][1]-$arrayMatrix[0][1]*$arrayMatrix[1][0];
+      $firstDaigonal = $arrayMatrix[0][0]*$arrayMatrix[1][1];
+      $secondDaigonal = $arrayMatrix[0][1]*$arrayMatrix[1][0];
+      $determinant = $firstDaigonal-$secondDaigonal;
       return $determinant;
     }
   }

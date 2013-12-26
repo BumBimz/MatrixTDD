@@ -1,14 +1,25 @@
 <?php
-class MinorMatricesTest extends PHPUnit_Framework_TestCase{
+  class MinorMatricesTest extends PHPUnit_Framework_TestCase{
 
-  function setUp(){
-    $this->minorMatrices = new MinorMatrices();
-    $this->arrayMatrix = array(
+    function setUp(){
+      $this->minorMatrices = new MinorMatrices();
+      $this->arrayMatrix = array(
                       array(3,2,1),
                       array(5,-5,1),
                       array(-1,1,1),
                     );
 
+    }
+
+    function providerDeterminant(){
+      return array(
+        array(
+          array(array(-5,1),
+          array(1,1)),-6),
+        array(
+          array(array(5,1),
+                array(-1,1)),6)
+            );
     }
     function testMinorMatricesFirstRoundWhenAddSqureMatrixThenReturn2x2SquaresMatrix(){
       $expected = array(
@@ -28,24 +39,12 @@ class MinorMatricesTest extends PHPUnit_Framework_TestCase{
       $this->assertEquals($expected,$actual);
     }
 
-    function testMinorMatricesWhenAdd2x2SqureMatrixThenReturnExpectedDeterminant(){
-      $arrayMatrix = array(
-                      array(-5,1),
-                      array(1,1)
-                    );
-      $expected = -6;
+    /**
+     *@dataProvider providerDeterminant
+     */
+    function testMinorMatricesWhenAdd2x2SqureMatrixThenReturnExpectedDeterminant($arrayMatrix,$expected){
       $actual = $this->minorMatrices->deteminantMinorMatrix($arrayMatrix);
       $this->assertEquals($expected,$actual);
     }
-    
-    function testMinorMatricesWhenAdd2x2SqureMatrixSecondRoundThenReturnExpectedDeterminant(){
-      $arrayMatrix = array(
-                      array(5,1),
-                      array(-1,1)
-                    );
-      $expected = 6;
-      $actual = $this->minorMatrices->deteminantMinorMatrix($arrayMatrix);
-      $this->assertEquals($expected,$actual);
-    }
-  } 
+  }
 ?>
