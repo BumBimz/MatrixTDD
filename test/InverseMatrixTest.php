@@ -1,5 +1,9 @@
 <?php
-  class InverseMatrixTest extends PHPUnit_Framework_TestCase{
+class InverseMatrixTest extends PHPUnit_Framework_TestCase{
+    function setUp(){
+      $this->inverse = new InverseMatrix();
+    }
+
     function testInverseMatrixWhenAdd2x2SquaresMatrixThenReturnTransposeMatrix(){
       $matrixarray = array(
                       array(1,1),
@@ -9,8 +13,7 @@
                     array(1,0),
                     array(1,0)
                   );
-      $inverse = new InverseMatrix();
-      $actual = $inverse->transpose($matrixarray);
+      $actual = $this->inverse->transpose($matrixarray);
       $this->assertEquals($expected,$actual);
     }
 
@@ -25,8 +28,7 @@
                     array(1,0,0),
                     array(1,0,0)
                   );
-      $inverse = new InverseMatrix();
-      $actual = $inverse->transpose($matrixarray);
+      $actual = $this->inverse->transpose($matrixarray);
       $this->assertEquals($expected,$actual);
     }
   }
