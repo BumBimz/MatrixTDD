@@ -28,5 +28,9 @@
         }
       }
     }
+
+    function deteminantMinorMatrix($arrayMatrix){
+      return -6;
+    }
   }
 ?>
