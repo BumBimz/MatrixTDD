@@ -36,7 +36,16 @@ class MinorMatricesTest extends PHPUnit_Framework_TestCase{
       $expected = -6;
       $actual = $this->minorMatrices->deteminantMinorMatrix($arrayMatrix);
       $this->assertEquals($expected,$actual);
-
+    }
+    
+    function testMinorMatricesWhenAdd2x2SqureMatrixSecondRoundThenReturnExpectedDeterminant(){
+      $arrayMatrix = array(
+                      array(5,1),
+                      array(-1,1)
+                    );
+      $expected = 6;
+      $actual = $this->minorMatrices->deteminantMinorMatrix($arrayMatrix);
+      $this->assertEquals($expected,$actual);
     }
   } 
 ?>
