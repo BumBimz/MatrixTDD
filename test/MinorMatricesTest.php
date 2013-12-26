@@ -58,7 +58,5 @@
       $actual = $this->minorMatrices->deteminantMinorMatrix($this->arrayMatrix,0,1);
       $this->assertEquals($expected,$actual);
     }
-
-
   }
 ?>

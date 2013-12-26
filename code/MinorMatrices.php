@@ -1,9 +1,9 @@
 <?php
   class MinorMatrices{
-    function minorMatrix($arrayMatrix,$rowMartrix,$columnMartrix){
+    function minorMatrix($arrayMatrix,$rowMatrix,$columnMatrix){
       $this->arrayMatrix = $arrayMatrix;
-      $this->rowMatrix = $rowMartrix;
-      $this->columnMartrix = $columnMartrix;
+      $this->rowMatrix = $rowMatrix;
+      $this->columnMatrix = $columnMatrix;
       $this->minorMatrixAxisX();
       return $this->newArray;
     }
@@ -22,7 +22,7 @@
     function minorMatrixAxisY($row){
       $positionAxisY=0;
       for($column=0;$column<$this->sizeOfMatrix;$column++){
-        if($column!=$this->columnMartrix){
+        if($column!=$this->columnMatrix){
           $this->newArray[$this->positionAxisX][$positionAxisY]=$this->arrayMatrix[$row][$column];
           $positionAxisY++;
         }
@@ -36,9 +36,9 @@
       return $determinant;
     }
 
-    function deteminantMinorMatrix($arrayMatrix,$x,$y){
-      $newArray = $this->minorMatrix($arrayMatrix,$x,$y);
-      $determinant = $this->deteminantForEachMinorMatrix($newArray);
+    function deteminantMinorMatrix($arrayMatrix,$rowMatrix,$columnMatrix){
+      $newMatrix = $this->minorMatrix($arrayMatrix,$rowMatrix,$columnMatrix);
+      $determinant = $this->deteminantForEachMinorMatrix($newMatrix);
       return $determinant;
     }
   }
