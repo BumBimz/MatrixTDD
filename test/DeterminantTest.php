@@ -111,7 +111,7 @@
     /**
      * @dataProvider providerDaigonal
      */
-    function testDaigonalGivenSqualMatrixWhenAnyRoundThenReturnExpected($round,$expectedDown,$expectedUp){
+    function testDaigonalGivenSquareMatrixWhenAnyRoundThenReturnExpected($round,$expectedDown,$expectedUp){
       $arrayMatrix = array(
         array(3,5,-1),
         array(2,-5,1),
