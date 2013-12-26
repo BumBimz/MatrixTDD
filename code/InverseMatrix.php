@@ -1,10 +1,12 @@
 <?php
   class InverseMatrix{
     function transpose($squareMatrix){
-      return array(
-              array(1,0),
-              array(1,0)
-            );
+      for($i=0;$i<sizeof($squareMatrix);$i++){
+        for($j=0;$j<sizeof($squareMatrix);$j++){
+          $newSquareMatrix[$j][$i] = $squareMatrix[$i][$j];
+        }
+      }
+      return $newSquareMatrix;
     } 
   }
 ?>

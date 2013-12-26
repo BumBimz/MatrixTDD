@@ -13,5 +13,21 @@
       $actual = $inverse->transpose($matrixarray);
       $this->assertEquals($expected,$actual);
     }
+
+    function testInverseMatrixWhenAdd3x3SquaresMatrixThenReturnTransposeMatrix(){
+      $matrixarray = array(
+                      array(1,1,1),
+                      array(0,0,0),
+                      array(0,0,0)
+                    );
+      $expected = array(
+                    array(1,0,0),
+                    array(1,0,0),
+                    array(1,0,0)
+                  );
+      $inverse = new InverseMatrix();
+      $actual = $inverse->transpose($matrixarray);
+      $this->assertEquals($expected,$actual);
+    }
   }
 ?>
