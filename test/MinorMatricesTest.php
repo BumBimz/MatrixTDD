@@ -43,7 +43,13 @@
      *@dataProvider providerDeterminant
      */
     function testMinorMatricesWhenAdd2x2SqureMatrixThenReturnExpectedDeterminant($arrayMatrix,$expected){
-      $actual = $this->minorMatrices->deteminantMinorMatrix($arrayMatrix);
+      $actual = $this->minorMatrices->deteminantForEachMinorMatrix($arrayMatrix);
+      $this->assertEquals($expected,$actual);
+    }
+
+    function testMinorMatricesFirstroundWhenAdd3x3SqureMatrixThenReturnExpectedDeterminant(){
+      $expected = -6;
+      $actual = $this->minorMatrices->deteminantMinorMatrix($this->arrayMatrix,0,0);
       $this->assertEquals($expected,$actual);
     }
   }

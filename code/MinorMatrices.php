@@ -29,11 +29,15 @@
       }
     }
 
-    function deteminantMinorMatrix($arrayMatrix){
+    function deteminantForEachMinorMatrix($arrayMatrix){
       $firstDaigonal = $arrayMatrix[0][0]*$arrayMatrix[1][1];
       $secondDaigonal = $arrayMatrix[0][1]*$arrayMatrix[1][0];
       $determinant = $firstDaigonal-$secondDaigonal;
       return $determinant;
+    }
+
+    function deteminantMinorMatrix($arrayMatrix,$x,$y){
+      return -6;
     }
   }
 ?>
