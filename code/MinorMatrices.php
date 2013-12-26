@@ -43,9 +43,10 @@
     }
 
     function findDeterminant($arrayMatrix){
-      for($i=0;$i<sizeof($arrayMatrix);$i++){
-        for($j=0;$j<sizeof($arrayMatrix);$j++){
-          $newMatrix[$i][$j] = $this->deteminantMinorMatrix($arrayMatrix,$i,$j);
+      $sizeOfMatrix = sizeof($arrayMatrix);
+      for($row=0;$row<$sizeOfMatrix;$row++){
+        for($column=0;$column<$sizeOfMatrix;$column++){
+          $newMatrix[$row][$column] = $this->deteminantMinorMatrix($arrayMatrix,$row,$column);
         }
       }
       return $newMatrix;
