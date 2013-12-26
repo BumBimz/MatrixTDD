@@ -1,5 +1,5 @@
 <?php
-  class InverseMatrix{
+  class TransposeMatrix{
   
     function transpose($squareMatrix){
       $this->squareMatrix=$squareMatrix;
