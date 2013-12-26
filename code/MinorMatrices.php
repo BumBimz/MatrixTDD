@@ -37,7 +37,9 @@
     }
 
     function deteminantMinorMatrix($arrayMatrix,$x,$y){
-      return -6;
+      $newArray = $this->minorMatrix($arrayMatrix,$x,$y);
+      $determinant = $this->deteminantForEachMinorMatrix($newArray);
+      return $determinant;
     }
   }
 ?>

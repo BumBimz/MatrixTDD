@@ -47,10 +47,18 @@
       $this->assertEquals($expected,$actual);
     }
 
-    function testMinorMatricesFirstroundWhenAdd3x3SqureMatrixThenReturnExpectedDeterminant(){
+    function testMinorMatricesFirstRoundWhenAdd3x3SqureMatrixThenReturnExpectedDeterminant(){
       $expected = -6;
       $actual = $this->minorMatrices->deteminantMinorMatrix($this->arrayMatrix,0,0);
       $this->assertEquals($expected,$actual);
     }
+    
+    function testMinorMatricesSecondRoundWhenAdd3x3SqureMatrixThenReturnExpectedDeterminant(){
+      $expected = 6;
+      $actual = $this->minorMatrices->deteminantMinorMatrix($this->arrayMatrix,0,1);
+      $this->assertEquals($expected,$actual);
+    }
+
+
   }
 ?>
