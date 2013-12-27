@@ -78,11 +78,13 @@
     }
 
     function lastStep($arrayMatrix){
-      return array(
-                    array(-6,-6,0),
-                    array(-1,4,-5),
-                    array(7,2,-25)
-                  );
+      $sizeOfMatrix = sizeof($arrayMatrix);
+      for($row=0;$row<$sizeOfMatrix;$row++){
+        for($column=0;$column<$sizeOfMatrix;$column++){
+          $adjointMatrix[$row][$column]=$this->addMinusInMatrix($arrayMatrix[$row][$column],$row,$column);
+        }
+      }
+      return $adjointMatrix;
     }
   }
 ?>

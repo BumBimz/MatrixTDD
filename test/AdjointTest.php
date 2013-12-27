@@ -155,5 +155,19 @@
       $actual = $this->adjoint->adjointMatrix($arrayMatrix);
       $this->assertEquals($expected,$actual);
     }
+    function testAdjointGivenMatrixWhenLastStepCofactorSecondMatrixThenReturnExpectedMatrix(){
+      $arrayMatrix = array(
+                    array(1,1,1),
+                    array(-1,1,1),
+                    array(-1,-1,1)
+                  );
+      $expected = array(
+                    array(1,-1,1),
+                    array(1,1,-1),
+                    array(-1,1,1)
+                  );
+      $actual = $this->adjoint->adjointMatrix($arrayMatrix);
+      $this->assertEquals($expected,$actual);
+    }
   }
 ?>
