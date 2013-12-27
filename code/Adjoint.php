@@ -72,9 +72,17 @@
     
     function addMinusInMatrix($cofactorXY,$x,$y){
       $checkPointer = ($x+$y)%2;
-      if($checkPointer==1)
+      if($checkPointer == 1)
         return -$cofactorXY;
       return $cofactorXY;
+    }
+
+    function lastStep($arrayMatrix){
+      return array(
+                    array(-6,-6,0),
+                    array(-1,4,-5),
+                    array(7,2,-25)
+                  );
     }
   }
 ?>

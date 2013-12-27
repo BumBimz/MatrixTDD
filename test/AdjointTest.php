@@ -139,7 +139,21 @@
     function testAdjointGivenMatrixWhenLastStepCofactorFirstRoundThenReturnExpectedMatrix($cofactorXY,$x,$y,$expected){
       $acctual = $this->adjoint->addMinusInMatrix($cofactorXY,$x,$y);
       $this->assertEquals($expected,$acctual);
-    
+    }
+
+    function testAdjointGivenMatrixWhenLastStepCofactorFirstMatrixThenReturnExpectedMatrix(){
+      $arrayMatrix = array(
+                    array(-6,6,0),
+                    array(1,4,5),
+                    array(7,-2,-25)
+                  );
+      $expected = array(
+                    array(-6,-6,0),
+                    array(-1,4,-5),
+                    array(7,2,-25)
+                  );
+      $actual = $this->adjoint->adjointMatrix($arrayMatrix);
+      $this->assertEquals($expected,$actual);
     }
   }
 ?>
