@@ -70,8 +70,10 @@
       return $newMatrix;
     }
     
-    function addMinusInMatrix($arrayMatrix,$x,$y){
-      return -6;
+    function addMinusInMatrix($cofactorXY,$x,$y){
+      if(($x+$y)%2==1)
+        return -$cofactorXY;
+      return $cofactorXY;
     }
   }
 ?>
