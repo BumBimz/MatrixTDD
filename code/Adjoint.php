@@ -1,5 +1,23 @@
 <?php
-  class MinorMatrices{
+  class Adjoint{
+
+    function transpose($squareMatrix){
+      $this->squareMatrix=$squareMatrix;
+      $lenghtOfarray = sizeof($squareMatrix);
+      for($i=0;$i<$lenghtOfarray-1;$i++){
+        for($j=$i+1;$j<$lenghtOfarray;$j++){
+          $this->swap($i,$j);
+        }
+      }
+      return $this->squareMatrix;
+    }
+
+    function swap($n,$m){
+      $temp = $this->squareMatrix[$n][$m]; 
+      $this->squareMatrix[$n][$m] = $this->squareMatrix[$m][$n];
+      $this->squareMatrix[$m][$n] = $temp;
+    }
+
     function minorMatrix($arrayMatrix,$rowMatrix,$columnMatrix){
       $this->arrayMatrix = $arrayMatrix;
       $this->rowMatrix = $rowMatrix;
@@ -29,24 +47,24 @@
       }
     }
 
-    function deteminantForEachMinorMatrix($arrayMatrix){
+    function cofactorForEachMinorMatrix($arrayMatrix){
       $firstDaigonal = $arrayMatrix[0][0]*$arrayMatrix[1][1];
       $secondDaigonal = $arrayMatrix[0][1]*$arrayMatrix[1][0];
       $determinant = $firstDaigonal-$secondDaigonal;
       return $determinant;
     }
 
-    function deteminantMinorMatrix($arrayMatrix,$rowMatrix,$columnMatrix){
+    function findCofactor($arrayMatrix,$rowMatrix,$columnMatrix){
       $newMatrix = $this->minorMatrix($arrayMatrix,$rowMatrix,$columnMatrix);
-      $determinant = $this->deteminantForEachMinorMatrix($newMatrix);
+      $determinant = $this->cofactorForEachMinorMatrix($newMatrix);
       return $determinant;
     }
 
-    function findDeterminant($arrayMatrix){
+    function adjointMatrix($arrayMatrix){
       $sizeOfMatrix = sizeof($arrayMatrix);
       for($row=0;$row<$sizeOfMatrix;$row++){
         for($column=0;$column<$sizeOfMatrix;$column++){
-          $newMatrix[$row][$column] = $this->deteminantMinorMatrix($arrayMatrix,$row,$column);
+          $newMatrix[$row][$column] = $this->findCofactor($arrayMatrix,$row,$column);
         }
       }
       return $newMatrix;
