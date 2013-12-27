@@ -29,7 +29,7 @@
     }
 
     function testAdjointMatrixWhenAdd2x2SquaresMatrixThenReturnTransposeMatrix(){
-      $matrixarray = array(
+      $arrayMatrix = array(
                       array(1,1),
                       array(0,0)
                     );
@@ -37,12 +37,12 @@
                     array(1,0),
                     array(1,0)
                   );
-      $actual = $this->adjoint->transpose($matrixarray);
+      $actual = $this->adjoint->transpose($arrayMatrix);
       $this->assertEquals($expected,$actual);
     }
 
     function testAdjointMatrixWhenAdd3x3SquaresMatrixThenReturnTransposeMatrix(){
-      $matrixarray = array(
+      $arrayMatrix = array(
                       array(1,1,1),
                       array(0,0,0),
                       array(0,0,0)
@@ -52,12 +52,12 @@
                     array(1,0,0),
                     array(1,0,0)
                   );
-      $actual = $this->adjoint->transpose($matrixarray);
+      $actual = $this->adjoint->transpose($arrayMatrix);
       $this->assertEquals($expected,$actual);
     }
 
     function testAdjointMatrixWhenAddSquaresMatrixThenReturnTransposeMatrix(){
-      $matrixarray = array(
+      $arrayMatrix = array(
                       array(3,5,-1),
                       array(2,-5,2),
                       array(1,3,1)
@@ -67,7 +67,7 @@
                     array(5,-5,3),
                     array(-1,2,1)
                   );
-      $actual = $this->adjoint->transpose($matrixarray);
+      $actual = $this->adjoint->transpose($arrayMatrix);
       $this->assertEquals($expected,$actual);
     }
 
@@ -210,6 +210,20 @@
                     array(-6,-6,0),
                     array(-1,4,-5),
                     array(7,2,-25)
+                  );
+      $actual = $this->adjoint->adjointMatrix($arrayMatrix);
+      $this->assertEquals($expected,$actual);
+    }
+    function testAdjointGivenSecondMatrixWhenAdjointThenReturnExpectedMatrix(){
+      $arrayMatrix = array(
+                      array(1,1,0),
+                      array(0,1,1),
+                      array(1,0,1)
+                     );
+      $expected = array(
+                    array(1,-1,1),
+                    array(1,1,-1),
+                    array(-1,1,1)
                   );
       $actual = $this->adjoint->adjointMatrix($arrayMatrix);
       $this->assertEquals($expected,$actual);
