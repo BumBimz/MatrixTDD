@@ -60,7 +60,7 @@
       return $determinant;
     }
 
-    function adjointMatrix($arrayMatrix){
+    function changeCofactorMatrix($arrayMatrix){
       $sizeOfMatrix = sizeof($arrayMatrix);
       for($row=0;$row<$sizeOfMatrix;$row++){
         for($column=0;$column<$sizeOfMatrix;$column++){
@@ -88,11 +88,9 @@
     }
 
     function firstStep($arrayMatrix){
-      return array(
-                    array(-6,6,0),
-                    array(1,4,5),
-                    array(7,-2,-25)
-                  );
+      $transposeMatrix = $this->transpose($arrayMatrix);
+      $cofactorMatrix = $this->changeCofactorMatrix($transposeMatrix);
+      return $cofactorMatrix;
     }
   }
 ?>

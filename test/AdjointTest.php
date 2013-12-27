@@ -115,7 +115,7 @@
                     array(1,4,5),
                     array(7,-2,-25)
                   );
-      $actual = $this->adjoint->adjointMatrix($this->arrayMatrix);
+      $actual = $this->adjoint->changeCofactorMatrix($this->arrayMatrix);
       $this->assertEquals($expected,$actual);
     }
     function testAdjointWhenAddNew3x3SqureMatrixThenReturnExpectedMatrix(){
@@ -129,7 +129,7 @@
                     array(-1,1,1),
                     array(-1,-1,1)
                   );
-      $actual = $this->adjoint->adjointMatrix($arrayMatrix);
+      $actual = $this->adjoint->changeCofactorMatrix($arrayMatrix);
       $this->assertEquals($expected,$actual);
     }
 
@@ -184,7 +184,20 @@
                   );
       $actual = $this->adjoint->firstStep($arrayMatrix);
       $this->assertEquals($expected,$actual);
-
-}
+    }
+    function testAdjointGivenSecondMatrixWhenFirstStepThenReturnExpectedMatrix(){
+      $arrayMatrix = array(
+                      array(1,1,0),
+                      array(0,1,1),
+                      array(1,0,1)
+                     );
+      $expected = array(
+                    array(1,1,1),
+                    array(-1,1,1),
+                    array(-1,-1,1)
+                  );
+      $actual = $this->adjoint->firstStep($arrayMatrix);
+      $this->assertEquals($expected,$actual);
+    }
   }
 ?>
