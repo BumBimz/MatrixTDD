@@ -8,9 +8,9 @@
                       array(1,1,1)
                     );
       $expected = array(
-                    array(-6,-6,0),
-                    array(-1,4,-5),
-                    array(7,2,-25)
+                    array(6/30,6/30,0),
+                    array(1/30,-4/30,5/30),
+                    array(-7/30,-2/30,25/30)
                   );
       $actual = $inverse->inverse($arrayMatrix);
       $this->assertEquals($expected,$actual);
@@ -24,9 +24,9 @@
                       array(1,0,1)
                     );
       $expected = array(
-                    array(1,-1,1),
-                    array(1,1,-1),
-                    array(-1,1,1)
+                    array(0.5,-0.5,0.5),
+                    array(0.5,0.5,-0.5),
+                    array(-0.5,0.5,0.5)
                   );
       $actual = $inverse->inverse($arrayMatrix);
       $this->assertEquals($expected,$actual);
