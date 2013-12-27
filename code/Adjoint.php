@@ -71,7 +71,8 @@
     }
     
     function addMinusInMatrix($cofactorXY,$x,$y){
-      if(($x+$y)%2==1)
+      $checkPointer = ($x+$y)%2;
+      if($checkPointer==1)
         return -$cofactorXY;
       return $cofactorXY;
     }

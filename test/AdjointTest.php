@@ -22,6 +22,12 @@
             );
     }
 
+    function providerAddMinusMatrix(){
+      return array(
+        array(-6,0,0,-6),
+        array(6,0,1,-6)
+      );
+    }
     function testAdjointMatrixWhenAdd2x2SquaresMatrixThenReturnTransposeMatrix(){
       $matrixarray = array(
                       array(1,1),
@@ -126,28 +132,14 @@
       $actual = $this->adjoint->adjointMatrix($arrayMatrix);
       $this->assertEquals($expected,$actual);
     }
-    
-    function testAdjointGivenMatrixWhenLastStepCofactorFirstRoundThenReturnExpectedMatrix(){
-      $arrayMatrixInLastStep = array(
-                    array(-6,6,0),
-                    array(1,4,5),
-                    array(7,-2,-25)
-                  );
-      $expected = -6;
-      $acctual = $this->adjoint->addMinusInMatrix($arrayMatrixInLastStep[0][0],0,0);
+
+    /**
+     * @dataProvider providerAddMinusMatrix
+     */
+    function testAdjointGivenMatrixWhenLastStepCofactorFirstRoundThenReturnExpectedMatrix($cofactorXY,$x,$y,$expected){
+      $acctual = $this->adjoint->addMinusInMatrix($cofactorXY,$x,$y);
       $this->assertEquals($expected,$acctual);
-    }
     
-    function testAdjointGivenMatrixWhenLastStepCofactorSecondRoundThenReturnExpectedMatrix(){
-      $arrayMatrixInLastStep = array(
-                    array(-6,6,0),
-                    array(1,4,5),
-                    array(7,-2,-25)
-                  );
-      $expected = -6;
-      $acctual = $this->adjoint->addMinusInMatrix($arrayMatrixInLastStep[0][1],0,1);
-      $this->assertEquals($expected,$acctual);
     }
   }
-
 ?>
