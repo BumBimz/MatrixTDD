@@ -126,5 +126,18 @@
       $actual = $this->adjoint->adjointMatrix($arrayMatrix);
       $this->assertEquals($expected,$actual);
     }
+    
+    function testAdjointGivenMatrixWhenLastStepCofactorFirstRoundThenReturnExpectedMatrix(){
+      $arrayMatrixInLastStep = array(
+                    array(-6,6,0),
+                    array(1,4,5),
+                    array(7,-2,-25)
+                  );
+      $expected = -6;
+      $acctual = $this->adjoint->addMinusInMatrix($arrayMatrixInLastStep,0,0);
+      $this->assertEquals($expected,$acctual);
+    }
+   
   }
+
 ?>

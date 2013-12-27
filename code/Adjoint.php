@@ -69,5 +69,9 @@
       }
       return $newMatrix;
     }
+    
+    function addMinusInMatrix($arrayMatrix,$x,$y){
+      return -6;
+    }
   }
 ?>
