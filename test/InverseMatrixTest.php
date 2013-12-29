@@ -5,32 +5,31 @@
                     array(6/30,6/30,0),
                     array(1/30,-4/30,5/30),
                     array(-7/30,-2/30,25/30)
-                  );
-
+                );
+      $arrayMatrix = array(
+                      array(3,5,-1),
+                      array(2,-5,1),
+                      array(1,1,1)
+                    );
       $mockDeterminant = $this->getMock('Determinant',array('calculatorDeterminant'));
       $mockDeterminant->expects($this->once())
         ->method('calculatorDeterminant')
         ->will($this->returnValue('-30'));
 
       $expectedResultFromAdjoint=array(
-        array(-6,-6,0),
-        array(-1,4,-5),
-        array(7,2,-25)
-        );
+                array(-6,-6,0),
+                array(-1,4,-5),
+                array(7,2,-25)
+              );
+
       $mockAdjoint = $this->getMock('Adjoint',array('adjointMatrix'));
       $mockAdjoint->expects($this->once())
         ->method('adjointMatrix')
-        ->will($this->returnValue($expectedResultFromAdjoint));
-      
+        ->will($this->returnValue('$expectedResultFromAdjoint'));
       $inverse = new InverseMatrix();
-      $arrayMatrix = array(
-                      array(3,5,-1),
-                      array(2,-5,1),
-                      array(1,1,1)
-                    );
-      $resultDeterminant=$mockDeterminant->calculatorDeterminant($arrayMatrix);
-      $resultAdjoint=$mockAdjoint->adjointMatrix($arrayMatrix);
-      $actual = $inverse->divide($resultDeterminant,$resultAdjoint);
+      $inverse->setDeterminant($mockDeterminant);
+      $inverse->setAdjoint($mockAdjoint);
+      $actual = $inverse->calculatorInverse($arrayMatrix);
       $this->assertEquals($expected,$actual);
     }
   }
