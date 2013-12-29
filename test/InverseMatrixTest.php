@@ -1,5 +1,10 @@
 <?php
-  class InverseMatrixTest extends PHPUnit_Framework_TestCase{
+class InverseMatrixTest extends PHPUnit_Framework_TestCase{
+  
+    function setUp(){
+      $this->inverse = new InverseMatrix();
+    }
+
     function testInverseMatrixGivenFirstMatrixWhenInverseMatrixThenReturnInverseMatrix(){
       $expected = array(
                     array(6/30,6/30,0),
@@ -26,13 +31,12 @@
         ->method('adjointMatrix')
         ->will($this->returnValue($mockResultAdjoint));
 
-      $inverse = new InverseMatrix();
-      $inverse->setDeterminant($mockDeterminant);
-      $inverse->setAdjoint($mockAdjoint);
-      $actual = $inverse->calculatorInverse($arrayMatrix);
+      $this->inverse->setDeterminant($mockDeterminant);
+      $this->inverse->setAdjoint($mockAdjoint);
+      $actual = $this->inverse->calculatorInverse($arrayMatrix);
       $this->assertEquals($expected,$actual);
     }
-    
+
     function testInverseMatrixGivenSecondMatrixWhenInverseMatrixThenReturnInverseMatrix(){
       $expected = array(
                     array(1/2,-1/2,1/2),
@@ -59,10 +63,9 @@
         ->method('adjointMatrix')
         ->will($this->returnValue($mockResultAdjoint));
 
-      $inverse = new InverseMatrix();
-      $inverse->setDeterminant($mockDeterminant);
-      $inverse->setAdjoint($mockAdjoint);
-      $actual = $inverse->calculatorInverse($arrayMatrix);
+      $this->inverse->setDeterminant($mockDeterminant);
+      $this->inverse->setAdjoint($mockAdjoint);
+      $actual = $this->inverse->calculatorInverse($arrayMatrix);
       $this->assertEquals($expected,$actual);
     }
   }
