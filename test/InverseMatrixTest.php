@@ -24,7 +24,40 @@
       $mockAdjoint = $this->getMock('Adjoint',array('adjointMatrix'));
       $mockAdjoint->expects($this->once())
         ->method('adjointMatrix')
-        ->will($this->returnValue('$mockResultAdjoint'));
+        ->will($this->returnValue($mockResultAdjoint));
+
+      $inverse = new InverseMatrix();
+      $inverse->setDeterminant($mockDeterminant);
+      $inverse->setAdjoint($mockAdjoint);
+      $actual = $inverse->calculatorInverse($arrayMatrix);
+      $this->assertEquals($expected,$actual);
+    }
+    
+    function testInverseMatrixGivenSecondMatrixWhenInverseMatrixThenReturnInverseMatrix(){
+      $expected = array(
+                    array(1/2,-1/2,1/2),
+                    array(1/2,1/2,-1/2),
+                    array(-1/2,1/2,1/2)
+                  );
+      $arrayMatrix = array(
+                      array(1,101),
+                      array(0,1,1),
+                      array(1,0,1)
+                   );
+      $mockResultAdjoint = array(
+                            array(1,-1,1),
+                            array(1,1,-1),
+                            array(-1,1,1)
+                         );
+
+      $mockDeterminant = $this->getMock('Determinant',array('calculatorDeterminant'));
+      $mockDeterminant->expects($this->once())
+        ->method('calculatorDeterminant')
+        ->will($this->returnValue('2'));
+      $mockAdjoint = $this->getMock('Adjoint',array('adjointMatrix'));
+      $mockAdjoint->expects($this->once())
+        ->method('adjointMatrix')
+        ->will($this->returnValue($mockResultAdjoint));
 
       $inverse = new InverseMatrix();
       $inverse->setDeterminant($mockDeterminant);

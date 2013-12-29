@@ -14,11 +14,12 @@ class InverseMatrix{
     function calculatorInverse($arrayMatrix){
       $resultDeterminant = $this->determinant->calculatorDeterminant($arrayMatrix);
       $resultAdjoint = $this->adjoint->adjointMatrix($arrayMatrix);
-      return  array(
-                    array(6/30,6/30,0),
-                    array(1/30,-4/30,5/30),
-                    array(-7/30,-2/30,25/30)
-                );
+      for($i=0;$i<sizeof($resultAdjoint);$i++){
+        for($j=0;$j<sizeof($resultAdjoint);$j++){
+          $resultInverseMatrix[$i][$j]=$resultAdjoint[$i][$j]/$resultDeterminant;
+        }
+      }
+      return $resultInverseMatrix;
     }
   }
 ?>
