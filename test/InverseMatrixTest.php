@@ -10,22 +10,22 @@
                       array(3,5,-1),
                       array(2,-5,1),
                       array(1,1,1)
-                    );
+                   );
+      $mockResultAdjoint = array(
+                            array(-6,-6,0),
+                            array(-1,4,-5),
+                            array(7,2,-25)
+                         );
+
       $mockDeterminant = $this->getMock('Determinant',array('calculatorDeterminant'));
       $mockDeterminant->expects($this->once())
         ->method('calculatorDeterminant')
         ->will($this->returnValue('-30'));
-
-      $expectedResultFromAdjoint=array(
-                array(-6,-6,0),
-                array(-1,4,-5),
-                array(7,2,-25)
-              );
-
       $mockAdjoint = $this->getMock('Adjoint',array('adjointMatrix'));
       $mockAdjoint->expects($this->once())
         ->method('adjointMatrix')
-        ->will($this->returnValue('$expectedResultFromAdjoint'));
+        ->will($this->returnValue('$mockResultAdjoint'));
+
       $inverse = new InverseMatrix();
       $inverse->setDeterminant($mockDeterminant);
       $inverse->setAdjoint($mockAdjoint);
