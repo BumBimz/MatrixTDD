@@ -17,7 +17,9 @@
     }
 
     function setArray($arrayMatrix,$round){
-      return array(6/30,6/30,0);
+      $row = $round-1;
+      $resultArray = array($arrayMatrix[$row][0],$arrayMatrix[$row][1],$arrayMatrix[$row][2]);
+      return $resultArray;
     }
   }
 ?>
