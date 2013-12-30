@@ -15,5 +15,9 @@
       $resultValue = $resultMultipleArray[0]+$resultMultipleArray[1]+$resultMultipleArray[2]; 
       return $resultValue;
     }
+
+    function setArray($arrayMatrix,$round){
+      return array(6/30,6/30,0);
+    }
   }
 ?>
