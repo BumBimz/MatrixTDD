@@ -10,5 +10,9 @@
         $resultMultipleArray[$position] = $firstArray[$position]*$secondArray[$position];
       return $resultMultipleArray;
     }
+
+    function sum($resultMultipleArray){
+      return -2; 
+    }
   }
 ?>

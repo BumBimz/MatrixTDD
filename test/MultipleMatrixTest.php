@@ -24,8 +24,15 @@ class MultipleMatrixTest extends PHPUnit_Framework_TestCase{
 /**
  *@dataProvider providerMultipleArray
  */
-  function testMultipleArrayRoundOneGivenTwoArrayWhenMultipleThenReturnOneArray($firstArray,$secondArray,$expected){
+  function testMultipleArrayGivenTwoArrayWhenMultipleThenReturnOneArray($firstArray,$secondArray,$expected){
     $actual = $this->multipleMatrix->multipleArray($firstArray,$secondArray);
+    $this->assertEquals($expected,$actual);
+  }
+
+  function testMutipleArrayRoundOneWhenSumArrayThenReturnExpectedResult(){
+    $expected = -2;
+    $resultMultipleArray = array(-7,2,3);
+    $actual = $this->multipleMatrix->sum($resultMultipleArray);
     $this->assertEquals($expected,$actual);
   }
 } 
