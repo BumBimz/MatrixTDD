@@ -22,17 +22,6 @@ class MultipleMatrixTest extends PHPUnit_Framework_TestCase{
     );
   }
 
-  function testMultipleGivenTwoAndNegativeThreeWhenMultipleThenReturnSix(){
-    $expected = -6;
-    $actual=$this->multipleMatrix->multiple(2,-3);
-    $this->assertEquals($expected,$actual) ;
-  }
-
-  function testMultipleGivenNegativeTwoAndNagativeTwoWhenMultipleThenReturnFour(){
-    $expected = 4;
-    $actual=$this->multipleMatrix->multiple(-2,-2);
-    $this->assertEquals($expected,$actual) ;
-  }
   /**
   *@dataProvider providerMultipleArray
   */

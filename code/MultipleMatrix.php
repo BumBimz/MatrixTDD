@@ -1,8 +1,5 @@
 <?php
-  class MultipleMatrix{
-    function multiple($firstValue,$secondValue){
-      return $firstValue*$secondValue;
-    } 
+class MultipleMatrix{
 
     function multipleArray($firstArray,$secondArray){
       $sizeOfArray=sizeof($firstArray);
@@ -22,12 +19,20 @@
     }
 
     function getResult($firstArrayMatrix,$secondArrayMatrix){
-      for($round=0;$round<sizeof($firstArrayMatrix);$round++){
-        $firstArray = $this->setArray($firstArrayMatrix,$round);
-        $resultMultipleArray = $this->multipleArray($firstArray,$secondArrayMatrix);
-        $resultMultipleMatrix[$round] = $this->sumValue($resultMultipleArray);
-      }
-      return $resultMultipleMatrix; 
+      $this->firstArrayMatrix = $firstArrayMatrix;
+      $this->secondArrayMatrix = $secondArrayMatrix;
+      $sizeOfMatrix = sizeof($firstArrayMatrix);
+      $this->processOfMultiple($sizeOfMatrix);
+      return $this->resultMultipleMatrix; 
     }
+
+    function processOfMultiple($sizeOfMatrix){
+      for($round=0;$round<$sizeOfMatrix;$round++){
+        $firstArray = $this->setArray($this->firstArrayMatrix,$round);
+        $resultMultipleArray = $this->multipleArray($firstArray,$this->secondArrayMatrix);
+        $this->resultMultipleMatrix[$round] = $this->sumValue($resultMultipleArray);
+      }
+    }
+
   }
 ?>
