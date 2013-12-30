@@ -59,5 +59,12 @@ class MultipleMatrixTest extends PHPUnit_Framework_TestCase{
     $actual = $this->multipleMatrix->setArray($this->arrayMatrix,2);
     $this->assertEquals($expected,$actual);
   }
+
+  function testMultipleMatrixGivenFirstMatrixWhenMultipleThenReturnThreeValue(){
+    $expected = array(6,1,3);
+    $secondArrayMatrix = array(20,10,10);
+    $actual = $this->multipleMatrix->getResult($this->arrayMatrix,$secondArrayMatrix);
+    $this->assertEquals($expected,$actual);
+  }
 } 
 ?>

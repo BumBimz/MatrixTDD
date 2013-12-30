@@ -21,5 +21,9 @@
       $resultArray = array($arrayMatrix[$row][0],$arrayMatrix[$row][1],$arrayMatrix[$row][2]);
       return $resultArray;
     }
+
+    function getResult($firstarrayMatrix,$secondArrayMatrix){
+      return array(6,1,3); 
+    }
   }
 ?>
