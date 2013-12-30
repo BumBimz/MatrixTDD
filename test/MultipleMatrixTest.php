@@ -50,13 +50,13 @@ class MultipleMatrixTest extends PHPUnit_Framework_TestCase{
   
   function testSetArrayGivenMatrixWhenStartRoundOneThenReturnExpectedArray(){
     $expected = array(6/30,6/30,0);
-    $actual = $this->multipleMatrix->setArray($this->arrayMatrix,1);
+    $actual = $this->multipleMatrix->setArray($this->arrayMatrix,0);
     $this->assertEquals($expected,$actual);
   }
   
   function testSetArrayGivenMatrixWhenStartRoundTwoThenReturnExpectedArray(){
     $expected = array(1/30,-4/30,5/30);
-    $actual = $this->multipleMatrix->setArray($this->arrayMatrix,2);
+    $actual = $this->multipleMatrix->setArray($this->arrayMatrix,1);
     $this->assertEquals($expected,$actual);
   }
 
@@ -64,6 +64,18 @@ class MultipleMatrixTest extends PHPUnit_Framework_TestCase{
     $expected = array(6,1,3);
     $secondArrayMatrix = array(20,10,10);
     $actual = $this->multipleMatrix->getResult($this->arrayMatrix,$secondArrayMatrix);
+    $this->assertEquals($expected,$actual);
+  }
+
+   function testMultipleMatrixGivenSecondMatrixWhenMultipleThenReturnThreeValue(){
+    $expected = array(7,3,17);
+    $arrayMatrix = array(
+                    array(1/2,-1/2,1/2),
+                    array(1/2,1/2,-1/2),
+                    array(-1/2,1/2,1/2)
+                  ); 
+    $secondArrayMatrix = array(10,20,24);
+    $actual = $this->multipleMatrix->getResult($arrayMatrix,$secondArrayMatrix);
     $this->assertEquals($expected,$actual);
   }
 } 

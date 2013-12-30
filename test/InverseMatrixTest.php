@@ -44,7 +44,7 @@ class InverseMatrixTest extends PHPUnit_Framework_TestCase{
                     array(-1/2,1/2,1/2)
                   );
       $arrayMatrix = array(
-                      array(1,101),
+                      array(1,1,1),
                       array(0,1,1),
                       array(1,0,1)
                    );
