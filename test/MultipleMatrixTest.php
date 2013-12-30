@@ -38,15 +38,7 @@ class MultipleMatrixTest extends PHPUnit_Framework_TestCase{
   /**
   *@dataProvider providerSumValue
   */
-  function testMutipleArrayRoundOneWhenSumArrayThenReturnExpectedResult(){
-    $expected = -2;
-    $resultMultipleArray = array(-7,2,3);
-    $actual = $this->multipleMatrix->sumValue($resultMultipleArray);
-    $this->assertEquals($expected,$actual);
-  }
-  function testMutipleArrayRoundTwoWhenSumArrayThenReturnExpectedResult(){
-    $expected = 5;
-    $resultMultipleArray = array(2,3,0);
+  function testMutipleArrayWhenSumArrayThenReturnExpectedResult($resultMultipleArray,$expected){
     $actual = $this->multipleMatrix->sumValue($resultMultipleArray);
     $this->assertEquals($expected,$actual);
   }
