@@ -3,6 +3,13 @@ class MultipleMatrixTest extends PHPUnit_Framework_TestCase{
   function setUp(){
     $this->multipleMatrix = new MultipleMatrix();
   }
+
+  function providerMultipleArray(){
+    return array(
+      array(array(1,2,3),array(3,2,2),array(3,4,6)),
+      array(array(3,2,1),array(3,2,2),array(9,4,2)),
+    );
+  }
   function testMultipleGivenTwoAndNegativeThreeWhenMultipleThenReturnSix(){
     $expected = -6;
     $actual=$this->multipleMatrix->multiple(2,-3);
@@ -14,19 +21,10 @@ class MultipleMatrixTest extends PHPUnit_Framework_TestCase{
     $actual=$this->multipleMatrix->multiple(-2,-2);
     $this->assertEquals($expected,$actual) ;
   }
-
-  function testMultipleArrayRoundOneGivenTwoArrayWhenMultipleThenReturnOneArray(){
-    $expected =array(3,4,6);
-    $firstArray = array(1,2,3);
-    $secondArray = array(3,2,2);
-    $actual = $this->multipleMatrix->multipleArray($firstArray,$secondArray);
-    $this->assertEquals($expected,$actual);
-  }
-  
-  function testMultipleArrayRoundTwoGivenTwoArrayWhenMultipleThenReturnOneArray(){
-    $expected =array(9,4,2);
-    $firstArray = array(3,2,1);
-    $secondArray = array(3,2,2);
+/**
+ *@dataProvider providerMultipleArray
+ */
+  function testMultipleArrayRoundOneGivenTwoArrayWhenMultipleThenReturnOneArray($firstArray,$secondArray,$expected){
     $actual = $this->multipleMatrix->multipleArray($firstArray,$secondArray);
     $this->assertEquals($expected,$actual);
   }

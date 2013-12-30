@@ -5,8 +5,9 @@
     } 
 
     function multipleArray($firstArray,$secondArray){
-      for($i=0;$i<sizeof($firstArray);$i++)
-        $resultMultipleArray[$i] = $firstArray[$i]*$secondArray[$i];
+      $sizeOfArray=sizeof($firstArray);
+      for($position=0;$position<$sizeOfArray;$position++)
+        $resultMultipleArray[$position] = $firstArray[$position]*$secondArray[$position];
       return $resultMultipleArray;
     }
   }
