@@ -12,7 +12,7 @@
     }
 
     function sum($resultMultipleArray){
-      return -2; 
+      return $resultMultipleArray[0]+$resultMultipleArray[1]+$resultMultipleArray[2]; 
     }
   }
 ?>
