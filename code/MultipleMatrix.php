@@ -11,8 +11,9 @@
       return $resultMultipleArray;
     }
 
-    function sum($resultMultipleArray){
-      return $resultMultipleArray[0]+$resultMultipleArray[1]+$resultMultipleArray[2]; 
+    function sumValue($resultMultipleArray){
+      $resultValue = $resultMultipleArray[0]+$resultMultipleArray[1]+$resultMultipleArray[2]; 
+      return $resultValue;
     }
   }
 ?>
