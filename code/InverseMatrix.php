@@ -3,15 +3,17 @@ class InverseMatrix{
   private $determinant;
   private $adjoint;
 
-    function setDeterminant($determinant = NULL){
-      $this->determinant = $determinant ?:new Determinant;
+    function setDeterminant($determinant){
+      $this->determinant = $determinant;
     }
 
-    function setAdjoint($adjoint = NULL){
-      $this->adjoint = $adjoint?:new Adjoint;
+    function setAdjoint($adjoint){
+      $this->adjoint = $adjoint;
     }
 
     function calculatorInverse($arrayMatrix){
+      $this->determinant?:$this->determinant = new Determinant;
+      $this->adjoint?:$this->adjoint = new Adjoint;
       $resultDeterminant = $this->determinant->calculatorDeterminant($arrayMatrix);
       $resultAdjoint = $this->adjoint->adjointMatrix($arrayMatrix);
       $sizeOfMatrix = sizeof($resultAdjoint);

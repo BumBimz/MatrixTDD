@@ -80,8 +80,6 @@ class InverseMatrixTest extends PHPUnit_Framework_TestCase{
                       array(2,-5,1),
                       array(1,1,1)
                    );
-      $this->inverse->setDeterminant();
-      $this->inverse->setAdjoint();
       $actual = $this->inverse->calculatorInverse($arrayMatrix);
       $this->assertEquals($expected,$actual);
     }

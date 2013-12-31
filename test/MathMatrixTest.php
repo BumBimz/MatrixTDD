@@ -29,6 +29,18 @@ class MathMatrixTest extends PHPUnit_Framework_TestCase{
     $this->assertEquals($expected,$actual);
   }
 
+  function testMathMatrixGivenPropositionMathMatrixButNotSetInverseAndMutipleMatrixWhenCalculatorThenReturnExpectedResult(){
+    $expected = array(6,1,3);
+    $arrayMatrix = array(
+                    array(3,5,-1),
+                    array(2,-5,1),
+                    array(1,1,1)
+                  );
+    $resultMatrix = array(20,10,10);
 
+    $mathMatrix = new MathMatrix();
+    $actual = $mathMatrix->calculator($arrayMatrix,$resultMatrix);
+    $this->assertEquals($expected,$actual);
+  }
 } 
 ?>
