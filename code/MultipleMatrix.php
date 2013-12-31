@@ -33,6 +33,5 @@ class MultipleMatrix{
         $this->resultMultipleMatrix[$round] = $this->sumValue($resultMultipleArray);
       }
     }
-
   }
 ?>
