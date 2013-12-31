@@ -3,12 +3,12 @@ class InverseMatrix{
   private $determinant;
   private $adjoint;
 
-    function setDeterminant($determinant){
-      $this->determinant = $determinant;
+    function setDeterminant($determinant = NULL){
+      $this->determinant = $determinant ?:new Determinant;
     }
 
-    function setAdjoint($adjoint){
-      $this->adjoint = $adjoint;
+    function setAdjoint($adjoint = NULL){
+      $this->adjoint = $adjoint?:new Adjoint;
     }
 
     function calculatorInverse($arrayMatrix){
